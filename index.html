@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Johnson - Network Administrator Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-header {
+            padding: 25px;
+            color: white;
+        }
+
+        .project-header h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: white;
+        }
+
+        .project-details {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 25px;
+            color: #333;
+        }
+
+        .project-details ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-details li {
+            padding: 3px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .project-details li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .experience-item {
+            border-left: 4px solid #667eea;
+            padding-left: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+
+        .experience-header {
+            margin-bottom: 10px;
+        }
+
+        .experience-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .experience-company {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .experience-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header, .section {
+                padding: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-img">AJ</div>
+            <h1>Alex Johnson</h1>
+            <div class="subtitle">Aspiring Network Administrator & Home Lab Enthusiast</div>
+            <p>Passionate about network infrastructure, cybersecurity, and building robust home lab environments. Seeking to leverage hands-on experience and technical skills in an entry-level network administration role.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>alex.johnson@email.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>(555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>linkedin.com/in/alexjohnsonnet</span>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <span>github.com/alexjohnsonlab</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>🛠️ Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Networking & Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>TCP/IP, DHCP, DNS, VLAN Configuration</li>
+                        <li>Router & Switch Configuration (Cisco, Ubiquiti)</li>
+                        <li>Network Troubleshooting & Performance Monitoring</li>
+                        <li>VPN Setup & Management (OpenVPN, WireGuard)</li>
+                        <li>Firewall Configuration (pfSense, OPNsense)</li>
+                        <li>Network Security & Access Control</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Server & Virtualization</h3>
+                    <ul class="skill-list">
+                        <li>VMware vSphere & ESXi</li>
+                        <li>Proxmox Virtual Environment</li>
+                        <li>Docker Containerization</li>
+                        <li>Linux Server Administration (Ubuntu, CentOS)</li>
+                        <li>Windows Server 2019/2022</li>
+                        <li>Active Directory & Group Policy</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Monitoring & Automation</h3>
+                    <ul class="skill-list">
+                        <li>PRTG, Nagios, Zabbix</li>
+                        <li>ELK Stack (Elasticsearch, Logstash, Kibana)</li>
+                        <li>Ansible for Configuration Management</li>
+                        <li>PowerShell & Bash Scripting</li>
+                        <li>Git Version Control</li>
+                        <li>Network Documentation & Diagramming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏠 Home Lab Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Enterprise Network Simulation</h3>
+                        <p>Built a comprehensive home lab simulating enterprise network infrastructure with multiple VLANs, security zones, and redundancy.</p>
+                        <div class="project-tags">
+                            <span class="tag">pfSense</span>
+                            <span class="tag">Cisco</span>
+                            <span class="tag">VLANs</span>
+                            <span class="tag">QoS</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Configured 6 VLANs for different network segments</li>
+                            <li>Implemented inter-VLAN routing with access control lists</li>
+                            <li>Set up redundant internet connections with failover</li>
+                            <li>Deployed network monitoring with PRTG</li>
+                            <li>Created comprehensive network documentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Virtualization Infrastructure</h3>
+                        <p>Designed and deployed a robust virtualization environment supporting 20+ virtual machines for various services and testing.</p>
+                        <div class="project-tags">
+                            <span class="tag">Proxmox</span>
+                            <span class="tag">VMware</span>
+                            <span class="tag">Storage</span>
+                            <span class="tag">Backup</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Built high-availability Proxmox cluster with 3 nodes</li>
+                            <li>Implemented shared storage using TrueNAS</li>
+                            <li>Configured automated VM backup and replication</li>
+                            <li>Set up template-based VM deployment</li>
+                            <li>Integrated with Active Directory for authentication</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Security Operations Center (SOC)</h3>
+                        <p>Established a home SOC environment with centralized logging, threat detection, and incident response capabilities.</p>
+                        <div class="project-tags">
+                            <span class="tag">ELK Stack</span>
+                            <span class="tag">Security Onion</span>
+                            <span class="tag">Splunk</span>
+                            <span class="tag">SIEM</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Deployed Security Onion for network security monitoring</li>
+                            <li>Configured ELK stack for log analysis and visualization</li>
+                            <li>Set up intrusion detection system (Suricata)</li>
+                            <li>Created custom dashboards for security metrics</li>
+                            <li>Implemented automated alerting for security events</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Cloud Integration Lab</h3>
+                        <p>Connected home lab to cloud services for hybrid infrastructure testing and learning cloud networking concepts.</p>
+                        <div class="project-tags">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Azure</span>
+                            <span class="tag">VPN</span>
+                            <span class="tag">Hybrid Cloud</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Established site-to-site VPN with AWS VPC</li>
+                            <li>Configured Azure ExpressRoute simulation</li>
+                            <li>Implemented cloud backup solutions</li>
+                            <li>Set up hybrid Active Directory with Azure AD</li>
+                            <li>Tested disaster recovery scenarios</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Network Automation & Monitoring</h3>
+                        <p>Developed automated network management tools and comprehensive monitoring solutions for proactive infrastructure management.</p>
+                        <div class="project-tags">
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">SNMP</span>
+                            <span class="tag">APIs</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Created Ansible playbooks for device configuration</li>
+                            <li>Developed Python scripts for network inventory</li>
+                            <li>Implemented SNMP monitoring across all devices</li>
+                            <li>Built automated network health reports</li>
+                            <li>Integrated with Slack for real-time notifications</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Disaster Recovery Testing</h3>
+                        <p>Designed and regularly tested comprehensive disaster recovery procedures to ensure business continuity.</p>
+                        <div class="project-tags">
+                            <span class="tag">Backup</span>
+                            <span class="tag">Recovery</span>
+                            <span class="tag">Testing</span>
+                            <span class="tag">Documentation</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <ul>
+                            <li>Developed comprehensive backup strategy</li>
+                            <li>Implemented 3-2-1 backup methodology</li>
+                            <li>Conducted monthly recovery testing</li>
+                            <li>Created detailed recovery procedures</li>
+                            <li>Measured and documented recovery time objectives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📚 Education & Certifications</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Computer Science Studies</div>
+                    <div class="experience-company">State University</div>
+                    <div class="experience-date">2023-2024</div>
+                </div>
+                <p>Completed foundational coursework in computer science, networking fundamentals, and system administration before focusing on hands-on learning through home lab projects.</p>
+            </div>
+            
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">🌐</div>
+                    <h3>CompTIA Network+</h3>
+                    <p>In Progress</p>
+                    <p>Expected: Q4 2025</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🔐</div>
+                    <h3>CompTIA Security+</h3>
+                    <p>Planned</p>
+                    <p>Expected: Q1 2026</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">🔧</div>
+                    <h3>Cisco CCNA</h3>
+                    <p>Studying</p>
+                    <p>Expected: Q2 2026</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">☁️</div>
+                    <h3>AWS Cloud Practitioner</h3>
+                    <p>Planned</p>
+                    <p>Expected: Q3 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💼 Relevant Experience</h2>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">IT Support Volunteer</div>
+                    <div class="experience-company">Local Community Center</div>
+                    <div class="experience-date">2024 - Present</div>
+                </div>
+                <p>Provide technical support and network troubleshooting for community events and ongoing IT needs. Gained experience working with end users and resolving connectivity issues in a real-world environment.</p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="experience-title">Freelance Network Consultant</div>
+                    <div class="experience-company">Small Business Clients</div>
+                    <div class="experience-date">2023 - Present</div>
+                </div>
+                <p>Helped local small businesses set up and maintain their network infrastructure, including router configuration, WiFi optimization, and basic security implementations.</p>
+            </div>
+        </div>
+
+        <div class="section cta-section">
+            <h2>Ready to Contribute</h2>
+            <p>I'm eager to bring my passion for networking, hands-on home lab experience, and continuous learning mindset to an entry-level network administrator role. My self-directed learning and practical project experience demonstrate my commitment to the field and ability to solve complex technical challenges.</p>
+            <div class="cta-buttons">
+                <a href="mailto:alex.johnson@email.com" class="btn">Contact Me</a>
+                <a href="#" class="btn">Download Resume</a>
+                <a href="#" class="btn">View GitHub</a>
+                <a href="#" class="btn">Lab Documentation</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
